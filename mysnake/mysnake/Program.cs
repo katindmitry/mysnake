@@ -16,38 +16,13 @@ namespace mysnake
             Point p2 = new Point( 4, 5, '#' );
             p2.Draw();
 
-            Point p3 = new Point( 10, 10, '&' );
-            p3.Draw();
+            Horizontal_line line = new Horizontal_line( 1, 20, 10, '*' );
+            line.Draw();
 
-            Point p4 = new Point( 13 , 14, '$' );
-            p4.Draw();
+            Vertical_line vline = new Vertical_line( 20, 1, 9, '*' );
+            vline.Draw();
 
-            List<int> numList = new List<int>();
-            numList.Add( 0 );
-            numList.Add( 1 );
-            numList.Add( 2 );
-
-            int x = numList[ 0 ];
-            int y = numList[ 1 ];
-            int z = numList[ 2 ];
-        
-            numList.RemoveAt(0);
-                  
-            List<Point> pList = new List<Point>();
-            pList.Add(p1);
-            pList.Add(p2);
-            pList.Add(p3);
-            pList.Add(p4);
-
-            foreach (Point i in pList)
-            {
-                Console.WriteLine(i.sym);
-            }
-
-            List<char> symList = new List<char>();
-            symList.Add( '#' );
-            symList.Add( '*');
-
+                   
             Console.ReadLine();
         }
     }
