@@ -41,7 +41,7 @@ namespace mysnake
 
             foreach (Point i in pList)
             {
-                Console.WriteLine(i);
+                Console.WriteLine(i.sym);
             }
 
             List<char> symList = new List<char>();
