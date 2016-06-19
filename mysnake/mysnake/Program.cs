@@ -12,17 +12,10 @@ namespace mysnake
         static void Main(string[] args)
         {
             Console.SetBufferSize(80, 25); //ограничение окна
-                                 
-            Horizontal_line upline = new Horizontal_line( 0, 78, 0, '*' );    //Рамочка
-            Horizontal_line downline = new Horizontal_line( 0, 78, 24, '*' );
-            Vertical_line leftline = new Vertical_line( 0, 0, 24, '*' );
-            Vertical_line rightline = new Vertical_line(78, 0, 24, '*');
 
-            upline.Draw();
-            downline.Draw();
-            leftline.Draw();
-            rightline.Draw();
-
+            Walls walls = new Walls(80, 25);
+            walls.Draw();                               
+                                  
             Point p = new Point(4, 5, '*');   // Отрисовка змейки
             Snake snake = new Snake( p, 4, Direction.RIGHT);
             snake.Draw();
@@ -33,7 +26,12 @@ namespace mysnake
            
             while(true)  // змейка кушает
             {
-                if(snake.Eat(food))
+                if(walls.IsHit(snake) || snake.IsHitTail())
+                {
+                    break;
+                }
+
+                if (snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();
                     food.Draw();
@@ -49,7 +47,9 @@ namespace mysnake
                     snake.HandleKey(key.Key);
                 }
             }
-                                             
+            
+            
+                                            
         }
     }
 }

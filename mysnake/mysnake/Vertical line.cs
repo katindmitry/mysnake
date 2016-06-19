@@ -8,7 +8,7 @@ namespace mysnake
 {
     class Vertical_line : Figure
     {
-        public Vertical_line(int x, int yUp, int yDown, char sym)
+        public Vertical_line(int yUp, int yDown, int x, char sym)
         {
             plist = new List<Point>();
             for (int y = yUp; y <= yDown; y++)
